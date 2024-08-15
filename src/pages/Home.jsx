@@ -6,6 +6,7 @@ import MessageBox from '../components/MessageBox';
 const Home = () => {
   return (
     <div>
+        <Navebar />    
         <Sidebar />
         <MessageBox />
         <PostList />
