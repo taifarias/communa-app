@@ -44,13 +44,14 @@ const styles = {
     container: {
         border: '1px solid #ccc',       
         borderRadius: '8px',
-        width: '350px',
+        width: '30%',
         height: '80%    ',
         overflowY: 'auto',
         margin: '20px', // Adiciona uma margem ao redor da sidebar
         position: 'fixed', // Mantém a sidebar fixa na tela
         top: '65px', // Alinha ao topo da tela
         left: '0', // Alinha ao canto esquerdo da tela
+        
        
     },
     title: {

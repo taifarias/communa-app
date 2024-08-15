@@ -27,10 +27,12 @@ const styles = {
     },
     link: {
         margin: '0', // Remove margem adicional do h2
+        textDecoration: 'none',
     },
 
     title: {
-        textDecoration: 'none',
+        
+        fontColor: 'rgba(191, 83, 200, 1)'
 
     }
 };

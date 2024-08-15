@@ -22,7 +22,7 @@ const UserCard = ({ user }) => {
 const styles = {
   card: {
     display: 'flex', // Adiciona flexbox para organizar a imagem e as informações lado a lado
-    alignItems: 'center',   
+    alignItems: 'center',    
     borderRadius: '8px',    
     margin: '0 auto 20px', // Espaçamento inferior para separar os cards
   },
@@ -36,7 +36,8 @@ const styles = {
 
   info: {
     textAlign: 'left', // Alinha o texto à esquerda
-    fontSize: '12px'
+    fontSize: '12px',
+    width: '70%', 
   },
 };
 

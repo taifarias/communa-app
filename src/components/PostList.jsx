@@ -61,7 +61,7 @@ const PostList = () => {
 
 const styles = {
     container: {
-        width: '60%',
+        width: '60%',               
         margin: '20px auto',
         marginRight:'80px',
         padding: '10px',

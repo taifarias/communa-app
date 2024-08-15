@@ -1,12 +1,14 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import PostList from '../components/PostList';
+import MessageBox from '../components/MessageBox';
 
 const Home = () => {
   return (
     <div>
-      <Sidebar />
-      <PostList />
+        <Sidebar />
+        <MessageBox />
+        <PostList />
     </div>
   );
 };
