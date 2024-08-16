@@ -26,13 +26,17 @@ const styles = {
         width: '50px',
     },
     link: {
-        margin: '0', // Remove margem adicional do h2
+        marginRight: '10px', // Remove margem adicional do h2
         textDecoration: 'none',
+        fontWeight: '600',
+        color: 'rgba(156, 56, 209, 0.91)',
     },
 
     title: {
         
-        fontColor: 'rgba(191, 83, 200, 1)'
+        color: 'rgba(156, 56, 209, 1)',
+        fontSize: '30px',
+        fontWeight: '700'
 
     }
 };

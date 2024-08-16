@@ -26,7 +26,7 @@ const styles = {
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'left',
     },
     postContent: {
         flex: 1,

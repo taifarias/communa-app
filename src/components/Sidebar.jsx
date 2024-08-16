@@ -24,7 +24,9 @@ const Sidebar = () => {
         fetchUsers();
     }, []);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div className='flex h-screen w-1/3 justify-center pt-16 text-xl text-purple-500'>
+        <div className=''>Loading...
+            </div></div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
@@ -57,6 +59,8 @@ const styles = {
     title: {
         textAlign: 'center', // Centraliza o título
         marginBottom: '20px', // Espaço entre o título e os cartões
+        fontSize: '25px',
+        color: 'rgba(194, 24, 192, 1)'
     },
     cardsContainer: {
         display: 'flex',

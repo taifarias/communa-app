@@ -7,9 +7,11 @@ import { AuthProvider } from './context/Auth'
 function App() {
   return (
     <div className='App'>
-      <AuthProvider>
-         <Outlet />
-      </AuthProvider>    
+      
+        
+     <AuthProvider>
+       <Outlet />
+    </AuthProvider> 
       
      
     </div>

@@ -9,7 +9,6 @@ const Home = () => {
     <div>
         <Navebar />    
         <Sidebar />
-        <MessageBox />
         <PostList />
     </div>
   );
