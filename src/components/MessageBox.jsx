@@ -5,10 +5,13 @@ const MessageBox = () => {
 
 
     return (
-        <div style={styles.container}>
-            <input type="text" 
+        <div  style={styles.container}>
+
+            <input id='messageInput' 
+            type="text" 
             style={styles.input}
-            placeholder='Faça o login para enviar mensagem' />
+            placeholder='Faça o login para enviar mensagem'
+            disabled />
             <button style={styles.button} > <img src={LogoImg} alt="logo-communa" style={styles.logo} />
                 
                 </button>
