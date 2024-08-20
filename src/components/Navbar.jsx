@@ -9,7 +9,7 @@ const Navebar = () => {
                 Communa
             </h2>
             <h3 style={styles.link}>
-                <Link to='/login'>Login</Link>
+                <Link to='/loginform'>Login</Link>
             </h3>
         </nav>
     );

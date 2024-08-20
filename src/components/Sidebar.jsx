@@ -11,8 +11,7 @@ const Sidebar = () => {
         const fetchUsers = async () => {
             try {
                 const response = await axios.get('https://randomuser.me/api/?results=25');
-                console.log(response.data); // Aqui estamos exibindo a resposta no console
-            
+              
                 setUsers(response.data.results);
             } catch (error) {
                 setError(error.message);

@@ -1,45 +1,45 @@
+// MessageBox.js
 import React, { useState } from 'react';
+import { useAuth } from '../hooks/useAuth'; // Importa o hook de autenticação
 import LogoImg from '../assets/logo.png';
 
 const MessageBox = ({ onAddPost }) => {
     const [message, setMessage] = useState('');
+    const { user } = useAuth(); // Obtém o usuário autenticado do contexto
 
     const handleAddPost = () => {
-        const userName = document.getElementById('userName').textContent;
-
-        if (message && userName) {
+        if (message && user) {
             const newPost = {
                 id: Date.now(), // Gerar um ID único
                 body: message,
+                user: { // Associar as informações do usuário diretamente ao post
+                    name: user.name,
+                    picture: user.picture
+                }
             };
-            const user = {
-                name: userName,
-                picture: 'https://via.placeholder.com/40', // Imagem placeholder, você pode alterar
-            };
-            onAddPost(newPost, user);
-            setMessage(''); // Limpa o input após adicionar o post
+            onAddPost(newPost);
+            setMessage('');
         }
-        console.log(newPost.body)
-        console.log(user.name)
     };
+    
+
     return (
         <div style={styles.container}>
             <input
                 id='messageInput'
                 type="text"
                 style={styles.input}
-                placeholder='Faça o login para enviar mensagem'
+                placeholder={user ? 'Escreva sua mensagem aqui' : 'Faça o login para enviar mensagem'}
                 value={message}
+                disabled={!user} // Desabilita o input se não houver um usuário autenticado
                 onChange={(e) => setMessage(e.target.value)}
             />
-
             <div className='flex justify-end flex-row w-4/5'>
                 <div id='userName' className='pr-5 pt-3'>
-                    Login do User AQUI
+                    {user ? user.name : 'Login do User AQUI'}
                 </div>
                 <button style={styles.button} onClick={handleAddPost}>
-
-                    <img src={LogoImg} alt="logo-communa" style={styles.logo} />
+                    <img src={LogoImg} alt="Send post" style={styles.logo}  />
                 </button>
             </div>
         </div>

@@ -1,70 +1,44 @@
-import React, { createContext, useEffect, useState } from 'react';
+// Auth.jsx
+import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const AuthContext = createContext({});
+// Cria o Contexto de Autenticação
+export const AuthContext = createContext();
+
+// Provedor de Contexto de Autenticação
 export const AuthProvider = ({ children }) => {
-   const [user, setUser] = useState();
+  const [user, setUser] = useState(null); 
+  const navigate = useNavigate(); 
 
-   useEffect(() => {
-    const userToken = localStorage.getItem('user_token');
-    const usersStorage = localStorage.getItem('users_db');
-
-    if (userToken && usersStorage) {
-        const hasUser = JSON.parse(usersStorage)?.filter(
-            (user) => user.email === JSON.parse(userToken).email
-        );
-        if (hasUser) setUser(hasUser[0]);
-
-    }
-   }, []);
-
-   const SignIn = (email, password) => { 
-    const usersStorage = JSON.parse(localStorage.getItem('users_db'));
-    
-    const hasUser = usersStorage?.filter((user) =>user.email === email);
-
-    if(hasUser?.filter) {
-        if (hasUser[0].email === email && hasUser[0].password === password) {
-            const token = Math.random().toString(36).substring(2);
-            localStorage.setItem('user_token', JSON.stringify({ email, token}));
-            setUser({ user, password });
-            return;
-        } else {
-            return "E-mail ou senha incorretor";
-        }
-        
+  // Função para fazer login
+  const login = (username, password) => {
+    // Simula a validação de login
+    const storedUser = localStorage.getItem(username);
+    if (storedUser) {
+      const { password: storedPassword } = JSON.parse(storedUser);
+      if (storedPassword === password) {
+        setUser({ username });
+        navigate('/'); 
+      } else {
+        setAlertMessage('Username or password incorrect');
+                    setIsAlertVisible(true);
+      }
     } else {
-        return "User not registred";
+        setAlertMessage('Username or password incorrect');
+        setIsAlertVisible(true);
     }
-   };
+  };
 
-   const SignUp = (email, password) => {
-    const usersStorage = JSON.parse(localStorage.getItem('users_db'));
 
-    if (hasUser?.lenght) {
-        return "There's already an account with that e-mail";
-    } 
-    let newUser;
-    if (usersStorage) {
-        newUser = [...usersStorage, { email, password }];
-
-    } else {
-        newUser = [{ email, password }];
-    }
-    localStorage.setItem('users_db', JSON.stringify(newUser));
-    return;
-   };
-
-   const SignOut = () => {
+  // Função para fazer logout
+  const logout = () => {
     setUser(null);
-    localStorage.removeItem('users_token');
-   };
-    
-   return (
-    <AuthContext.Provider
-    value={{ user, signed: !!user, SignIn, SignUp, SignOut }}
-    >
-        {children}
-    </AuthContext.Provider>
-   );
+    navigate('/loginform'); // Redireciona para a página de login após o logout
+  };
 
+  return (
+    <AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

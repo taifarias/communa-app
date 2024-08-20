@@ -4,20 +4,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App.jsx'
 import Home from './pages/home.jsx';
-import Login from './pages/Login.jsx';
-import Posts from './pages/Posts.jsx';
 
 import './index.css'
+import LoginForm from './pages/LoginForm.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route element={<App />}>
-        
+        <Route element={<App />}>     
+           
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='posts/:id' element={<Posts />} />
+          <Route path='/loginform' element={<LoginForm />} />
+         
         </Route>
       </Routes>
     </BrowserRouter>

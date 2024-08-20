@@ -10,7 +10,9 @@ function App() {
       
         
      <AuthProvider>
+
        <Outlet />
+       
     </AuthProvider> 
       
      
