@@ -3,6 +3,7 @@ import PostCard from './PostCard';
 import axios from 'axios';
 import MessageBox from './MessageBox';
 import LogoImg from '../assets/logo.png'
+import useAuth from '../hooks/useAuth';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -10,10 +11,9 @@ const PostList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const [loggedInUser, setLoggedInUser] = useState({
-        name: 'Usuário Padrão',
-        picture: '../assets/logo.png' // Caminho para a imagem padrão
-    }); 
+    const { user } = useAuth();
+
+   
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -58,13 +58,20 @@ const PostList = () => {
     }, []);
 
     const handleAddPost = (newPost) => {
-        // Usa o usuário logado ou o padrão se não houver usuário logado
         const postWithUserInfo = {
             ...newPost,
-            user: loggedInUser
+            user: {
+                name: user.username, // Usa o nome de usuário logado
+                picture: LogoImg, // Usa a foto padrão
+            }
         };
-        setPosts([postWithUserInfo, ...posts]); 
+        setPosts([postWithUserInfo, ...posts]);
+        setUsers([postWithUserInfo, ...posts]);
+    
+
+console.log('Post with User Info:', postWithUserInfo);
     };
+    
     
 
     if (loading) return (
@@ -86,13 +93,13 @@ const PostList = () => {
             <div style={styles.container}>
                 {posts.map((post) => {
                     // Encontrar o usuário correspondente ao post
-                    const user = users.find(user => user.id === post.userId);
+                    const userp = users.find(user => user.id === post.userId);
                     return (
-                        <PostCard
-                            key={post.id}
-                            post={post}
-                            user={user}
-                        />
+
+            <PostCard  key={post.id}
+                    post={post}
+                    user={userp}
+                />
                     );
                 })}
             </div>

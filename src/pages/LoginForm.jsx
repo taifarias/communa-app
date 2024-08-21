@@ -1,5 +1,6 @@
 import React, {  useState, useRef } from "react";
 import { useAuth } from "../hooks/useAuth.jsx";
+import { useNavigate } from 'react-router-dom';
 
 
 import LogoImg from '../assets/logo.png'
@@ -15,6 +16,7 @@ function LoginForm() {
     const [isAlertVisible, setIsAlertVisible] = useState(false);
 
     const { login } = useAuth();
+    const navigate = useNavigate(); // Hook para navegação
        
     const sidebarRef = useRef(null);
 
@@ -33,6 +35,7 @@ function LoginForm() {
                 setCadastroUser('');
                 setCadastroEmail('');
                 setCadastroSenha('');
+                login(loginUser, loginSenha);
             }
         } else {
             setAlertMessage('Please fill in all fields!');
@@ -55,8 +58,7 @@ function LoginForm() {
 
     const handleClickAlert = () => {
        
-         setIsAlertVisible(false);
-         
+            setIsAlertVisible(false);
         
     };
     

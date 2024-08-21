@@ -1,16 +1,30 @@
-import { Link } from 'react-router-dom';
+
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/Auth';
+import { Link, useNavigate } from 'react-router-dom';
 import LogoImg from '../assets/logo.png';
 
 const Navebar = () => {
+    const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate(); 
+  
+    const handleLogout = () => {
+      logout(); 
+      navigate('/'); 
+    };
+
     return (
         <nav style={styles.navbar}>
             <img src={LogoImg} alt="logo-communa" style={styles.logo} />
             <h2 style={styles.title}>
                 Communa
             </h2>
-            <h3 style={styles.link}>
-                <Link to='/loginform'>Login</Link>
-            </h3>
+           
+            <div style={styles.link}>
+                {user ? (<button onClick={handleLogout}>Logout</button>) 
+                      : ( <Link to="/loginform"> <button>Login</button> </Link>)
+                }
+            </div>
         </nav>
     );
 };

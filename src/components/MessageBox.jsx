@@ -5,16 +5,16 @@ import LogoImg from '../assets/logo.png';
 
 const MessageBox = ({ onAddPost }) => {
     const [message, setMessage] = useState('');
-    const { user } = useAuth(); // Obtém o usuário autenticado do contexto
+    const { user } = useAuth(); 
 
     const handleAddPost = () => {
         if (message && user) {
             const newPost = {
                 id: Date.now(), // Gerar um ID único
                 body: message,
-                user: { // Associar as informações do usuário diretamente ao post
-                    name: user.name,
-                    picture: user.picture
+                user: { 
+                    name: user.username, // Usar o nome de usuário logado
+                    picture: LogoImg, // Usar a foto padrão
                 }
             };
             onAddPost(newPost);
@@ -36,7 +36,7 @@ const MessageBox = ({ onAddPost }) => {
             />
             <div className='flex justify-end flex-row w-4/5'>
                 <div id='userName' className='pr-5 pt-3'>
-                    {user ? user.name : 'Login do User AQUI'}
+                    {user ? user.username : 'Login do User AQUI'}
                 </div>
                 <button style={styles.button} onClick={handleAddPost}>
                     <img src={LogoImg} alt="Send post" style={styles.logo}  />
