@@ -21,7 +21,7 @@ const UserCard = ({ user }) => {
 // Estilos do cartão
 const styles = {
   card: {
-    display: 'flex', // Adiciona flexbox para organizar a imagem e as informações lado a lado
+    display: 'flex',
     alignItems: 'center',    
     borderRadius: '8px',    
     margin: '0 auto 20px', // Espaçamento inferior para separar os cards

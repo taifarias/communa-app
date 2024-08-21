@@ -7,7 +7,8 @@ export default {
         'container': '80%'
       },
       width: {
-        'container': '30%'
+        'container': '30%',
+        'inputxl': '70%'
       }
     },
   },

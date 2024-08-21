@@ -87,10 +87,10 @@ console.log('Post with User Info:', postWithUserInfo);
     );
 
     return (
-        <div>
+        <div className='box-border xl:ml-96'>
             <MessageBox onAddPost={handleAddPost} />
 
-            <div style={styles.container}>
+            <div className='w-full px-16 md:ml-1 lg:w-4/6 lg:ml-80 xl:ml-24 xl:w-11/12'>
                 {posts.map((post) => {
                     // Encontrar o usuário correspondente ao post
                     const userp = users.find(user => user.id === post.userId);
@@ -107,13 +107,6 @@ console.log('Post with User Info:', postWithUserInfo);
     );
 };
 
-const styles = {
-    container: {
-        width: '60%',
-        margin: '20px auto',
-        marginRight: '80px',
-        padding: '10px',
-    },
-};
+
 
 export default PostList;

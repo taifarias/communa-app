@@ -24,53 +24,28 @@ const MessageBox = ({ onAddPost }) => {
     
 
     return (
-        <div style={styles.container}>
+        <div className=' ml-20 mt-10 lg:ml-44 xl:ml-1'>   
             <input
                 id='messageInput'
-                type="text"
-                style={styles.input}
+                type="text" 
+                className='w-4/5 h-28 mr-10 p-10 rounded-lg bg-purple-200 mb-3 md:ml-16 lg:ml-72 lg:w-3/6 xl:w-inputxl xl:ml-32 2xl:ml-72'
                 placeholder={user ? 'Escreva sua mensagem aqui' : 'Faça o login para enviar mensagem'}
                 value={message}
-                disabled={!user} // Desabilita o input se não houver um usuário autenticado
+                disabled={!user} 
                 onChange={(e) => setMessage(e.target.value)}
             />
             <div className='flex justify-end flex-row w-4/5'>
                 <div id='userName' className='pr-5 pt-3'>
                     {user ? user.username : 'Login do User AQUI'}
                 </div>
-                <button style={styles.button} onClick={handleAddPost}>
-                    <img src={LogoImg} alt="Send post" style={styles.logo}  />
+                <button className='border-2 rounded-lg border-purple-400 p-1 pr-2 mb-10' onClick={handleAddPost}>
+                    <img src={LogoImg} alt="Send post" className='w-7' />
                 </button>
             </div>
         </div>
     );
 };
 
-const styles = {
-    container: {
-        marginLeft: '500px',
-        marginTop: '20px'
-    },
-    input: {
-        width: '80%',
-        height: '80px',
-        marginRight: '10px',
-        padding: '10px',
-        borderRadius: '10px',
-        borderColor: 'rgba(191, 83, 200, 1)',
-        backgroundColor: 'rgba(191, 83, 200, .2)',
-    },
-    button: {
-        borderRadius: '10px',
-        border: '2px solid',
-        borderColor: 'rgba(191, 83, 200, 1)',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        padding: '4px',
-        paddingRight: '7px',
-    },
-    logo: {
-        width: '30px'
-    }
-};
+
 
 export default MessageBox;

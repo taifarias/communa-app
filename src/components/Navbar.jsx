@@ -14,13 +14,14 @@ const Navebar = () => {
     };
 
     return (
-        <nav style={styles.navbar}>
-            <img src={LogoImg} alt="logo-communa" style={styles.logo} />
-            <h2 style={styles.title}>
+        <nav  className='flex justify-between box-border w-screen overflow-x-hidden'>    
+            <img src={LogoImg} alt="logo-communa" className='w-12' />
+
+            <h2  className='text-2xl text-purple-600 font-bold pt-2'>
                 Communa
             </h2>
            
-            <div style={styles.link}>
+            <div className='font-semibold text-purple-600 pt-3 mr-6 sm:mr-16 lg:text-xl'>
                 {user ? (<button onClick={handleLogout}>Logout</button>) 
                       : ( <Link to="/loginform"> <button>Login</button> </Link>)
                 }
@@ -29,30 +30,5 @@ const Navebar = () => {
     );
 };
 
-const styles = {
-    navbar: {
-        display: 'flex',
-        justifyContent: 'space-between', // Distribui os elementos ao longo do eixo horizontal
-        alignItems: 'center', // Centraliza os itens verticalmente
-        backgroundColor: 'rgba(248, 248, 248, 0.7)',
-    },
-    logo: {
-        width: '50px',
-    },
-    link: {
-        marginRight: '10px', // Remove margem adicional do h2
-        textDecoration: 'none',
-        fontWeight: '600',
-        color: 'rgba(156, 56, 209, 0.91)',
-    },
-
-    title: {
-        
-        color: 'rgba(156, 56, 209, 1)',
-        fontSize: '30px',
-        fontWeight: '700'
-
-    }
-};
 
 export default Navebar;
