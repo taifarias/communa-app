@@ -37,7 +37,7 @@ function LoginPage() {
             <div id="container" className="box-border">
                 <RegisterForm />
 
-                {/* <LoginForm /> */}
+                <LoginForm />
 
                  <WelcomeBanner />    
 
