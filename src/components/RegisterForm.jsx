@@ -49,7 +49,7 @@ const RegisterForm = () => {
 
 
     return (
-        <div className='parentElement w-full '>
+        <div className='parentElement w-5/6 '>
 
             <div id="cadastroForm" className="bg-white rounded-t-xl flex items-center flex-col p-16 border-2 mt-10">
                    

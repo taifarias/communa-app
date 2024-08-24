@@ -11,7 +11,7 @@ const WelcomeBanner = () => {
         <div 
         id="sidebar" 
         ref={sidebarRef}  
-        className="bg-gradient-to-br from-violet-400 to-pink-200 w-full p-5 lg:h-container lg:w-container lg:rounded-r-md absolute lg:right-72"
+        className="bg-gradient-to-br from-violet-400 to-pink-200p-5 lg:h-container lg:w-container lg:rounded-r-md absolute lg:right-72"
         style={{ transform: 'translateX(0%)', transition: 'transform 0.5s ease' }} 
         >
             <div className="flex justify-center items-center flex-col h-full ">

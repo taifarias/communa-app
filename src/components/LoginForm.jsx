@@ -33,7 +33,7 @@ const LoginForm = () => {
 
 
     return (
-        <div id="cadastroForm" className="bg-white h-full w-1/2 rounded-l-md flex items-center flex-col pt-10">
+        <div id="cadastroForm" className="bg-white h-full w-1/2 rounded-l-md flex items-center flex-col pt-10 hidden">
         <div id="cabecalho" className="pb-6 flex flex-col items-center">
             <img src={LogoImg} alt="logo-communa" className="w-28" />
             <h1 className="font-semibold text-2xl">
