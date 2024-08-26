@@ -4,11 +4,13 @@ export default {
   theme: {
     extend: {
       height: {
-        'container': '80%'
+        'container': '700px'
       },
       width: {
         'container': '30%',
-        'inputxl': '70%'
+        'inputxl': '70%',
+        '85': '349px',
+        'banner': '410px'
       }
     },
   },
